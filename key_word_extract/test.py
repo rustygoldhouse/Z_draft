@@ -13,7 +13,7 @@ from nltk.corpus import stopwords
 with open('script.txt', 'r') as f:
     data = f.read()
 
-with open('Z_draft/keyword-extract/transcript_1.txt', 'r', encoding="utf8") as f1:
+with open('Z_draft/key_word_extract/transcript_1.txt', 'r', encoding="utf8") as f1:
     corpus_1 = f1.read()
 """
 with open('transcript_2.txt', 'r', encoding="utf8") as f2:

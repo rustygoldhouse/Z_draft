@@ -1,10 +1,10 @@
 from keywords import KeyWords
 from nltk.corpus import stopwords
 
-with open('Z_draft/keyword-extract/script.txt', 'r') as f:
+with open('Z_draft/key_word_extract/script.txt', 'r') as f:
     data = f.read()
 
-with open('Z_draft/keyword-extract/transcript_1.txt', 'r', encoding="utf8") as f1:
+with open('Z_draft/key_word_extract/transcript_1.txt', 'r', encoding="utf8") as f1:
     corpus_1 = f1.read()
 
 stopWords = stopwords.words('english')
@@ -18,3 +18,8 @@ for i in d:
     file.write('\n')
 
 file.close()
+
+with open('keys.txt', 'r') as file:
+    keys=file.read()
+
+print(keys)

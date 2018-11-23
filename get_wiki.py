@@ -16,15 +16,15 @@ for item in terms:
     search = wikipedia.search(item)
     pages.extend(search)
 
-file = open("Z_draft/keyword-extract/script.txt", "w")
+file = open("Z_draft/key_word_extract/script.txt", "w")
 file.close()
 
-file = open("Z_draft/keyword-extract/script.txt", "a")
+file = open("Z_draft/key_word_extract/script.txt", "a")
 
-summs = open("Z_draft/keyword-extract/transcript_1.txt", "w")
+summs = open("Z_draft/key_word_extract/transcript_1.txt", "w")
 summs.close()
 
-summs = open("Z_draft/keyword-extract/transcript_1.txt", "a")
+summs = open("Z_draft/key_word_extract/transcript_1.txt", "a")
 
 for item in pages:
     try:

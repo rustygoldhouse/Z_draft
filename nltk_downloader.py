@@ -1,4 +1,5 @@
 import nltk
 
-nltk.download('pos_tagger', 'stop_words')
+nltk.download('maxent_treebank_pos_tagger')
+nltk.download('stopwords')
 nltk.download('punkt')
