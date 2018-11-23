@@ -1,3 +1,4 @@
 import nltk
 
-nltk.download('punkt', 'pos_tagger', 'stop_words')
+nltk.download('pos_tagger', 'stop_words')
+nltk.download('punkt')
