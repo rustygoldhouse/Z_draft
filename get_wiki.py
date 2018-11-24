@@ -1,5 +1,6 @@
 import wikipedia
 from newspaper import Article
+
 wikipedia.set_lang("en")
 
 def usr_query(topic):
@@ -16,38 +17,36 @@ for item in terms:
     search = wikipedia.search(item)
     pages.extend(search)
 
-file = open("Z_draft/key_word_extract/script.txt", "w")
+file = open("wiki_text.txt", "w")
 file.close()
 
-file = open("Z_draft/key_word_extract/script.txt", "a")
+file = open("wiki_text.txt", "a")
 
-summs = open("Z_draft/key_word_extract/transcript_1.txt", "w")
-summs.close()
-
-summs = open("Z_draft/key_word_extract/transcript_1.txt", "a")
 
 for item in pages:
     try:
         raw = wikipedia.page(item)
         link = raw.url
-        article = Article(link)
+        article = Article(link, language='en')
         article.download()
         article.parse()
         article.nlp()
         text = article.text
-        file.write(text)
-        summs.write(article.summary)
+        file.write('\n---> text 15')
+        file.write(text[:15])
+        file.write('\n---> summary')
+        file.write(article.summary)
+        file.write('\n---> key words')
+        file.write(article.keywords)
     except wikipedia.exceptions.DisambiguationError:
         pass
 
 file.close()
-summs.close()
+
+with open('wiki_text.txt', 'r') as f:
+    result = f.read
 
 
-
-
-
-
-
+print(result)
 
 
