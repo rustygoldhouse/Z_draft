@@ -1,6 +1,9 @@
+
+
 import wikipedia
 from newspaper import Article, Config
-
+from keywords import KeyWords
+#from nltk.corpus import stopwords
 
 wikipedia.set_lang("en")
 
@@ -17,6 +20,34 @@ pages = []
 for item in terms:
     search = wikipedia.search(item)
     pages.extend(search)
+
+data = ' '.join(pages)
+
+print(data)
+
+
+with open('Z_draft/key_word_extract/corpus.txt', 'r', encoding="utf8") as f:
+    corpus_1 = f.read()
+
+keyword = KeyWords(corpus=corpus_1, alpha=0.8)
+d = keyword.get_keywords(data, n=20)
+
+file = open('keys.txt', 'w')
+
+
+for i in d:
+    file.write(i[0])
+    file.write('\n')
+
+file.close()
+
+with open('keys.txt', 'r') as file:
+    keys=file.read()
+
+print(keys)
+
+pages = keys.split()
+
 
 # here is where i procecss the terms for compatibilty with pretrained models
 
@@ -42,10 +73,10 @@ for item in pages:
         text = article.text
         file.write('\n---> text 15\n')
         file.write(text[:500])
+        """
         file.write('\n---> summary\n')
         file.write(article.summary)
-        """
-        file.write('\n---> key words\n')
+        file.write('\n---> key word\n')
         keys = article.keywords
         file.write(' '.join(keys))
     except wikipedia.exceptions.DisambiguationError:
@@ -58,8 +89,3 @@ with open('wiki_text.txt', 'r') as f:
 
 
 print(result)
-
-
-
-
-
