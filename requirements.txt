@@ -9,7 +9,7 @@ idna==2.6
 murmurhash==0.26.4
 newspaper3k==0.2.8
 nltk==3.4
-numpy==1.13.1
+numpy==1.22.0
 pathlib==1.0.1
 plac==0.9.6
 preshed==1.0.0
